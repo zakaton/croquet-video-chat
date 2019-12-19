@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Croquet Video Chat</title>
+        <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
+
+        <script src="qrcode.js"></script>
+
+        <script src="nacl.js"></script>
+        <script src="simplepeer.js"></script>
+
+        <script src="croquet.js"></script>
+        <script src="model.js"></script>
+        <script src="view.js"></script>
+    </head>
+
+    <style>
+        #qrcode {
+            position: absolute;
+            right: 10;
+            top: 10;
+        }
+
+        hr {
+            width: 50%;
+            left: 0;
+            position: absolute;
+        }
+    </style>
+
+    <body>
+        <h1>Croquet Chat</h1>
+
+        <div id="qrCode"></div>
+
+        <select id="peers">
+            <option value="">--Select Peer--</option>
+        </select>
+
+        <button id="call" disabled>Call</button>
+
+        <button id="toggleWebcam" disabled>Toggle Webcam</button>
+
+        <input id="changeNameInput" size="15">
+        <button id="changeNameButton" disabled>Change Name</button>
+
+        <hr>
+
+        <div id="local">
+            <h2 >Local <span id="localName"></span></h2>
+            <video muted width="500" autoplay id="localVideo"></video>
+        </div>
+
+        <hr>
+
+        <div id="remote">
+            <h2>Remote <span id="remoteName"></span></h2>
+            <video muted width="500" autoplay id="remoteVideo"></video>
+        </div>
+    </body>
+
+    <script>
+        Croquet.startSession("Croquet-Video-Chat", Model, View);
+    </script>
+</html>
